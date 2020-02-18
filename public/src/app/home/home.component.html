@@ -1,0 +1,30 @@
+<div class="container">
+
+<button [routerLink]="['/characters/create']">Create a new Hero</button><br>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Race</th>
+        <th scope="col">Class</th>
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr scope="row" *ngFor="let character of allCharacters">
+        <td>{{character.name}}</td>
+        <td>{{character.race}}</td>
+        <td>{{character.character_class}}</td>
+        <td>{{character.description}}</td>
+        <td>
+            <button [routerLink]="['/character/show', character._id]">View Sheet</button><br>
+            <button [routerLink]="['/character', character._id]">Enhance a Hero</button><br>
+            <button (click) ="destroyOneCharacter(character._id)">Retire</button><br>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</div><!--end of container-->
